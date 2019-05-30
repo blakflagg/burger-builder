@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import Aux from '../../hoc/Auxilary';
+import Aux from '../Aux/Auxilary';
 import classes from './Layout.module.css';
-import Toolbar from '../Navigation/Toolbar/Toolbar';
-import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
+import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 
 
 class Layout extends Component {
   state = {
-    showSideDrawer: true
+    showSideDrawer: false
   }
 
   sideDrawerClosedHandler = () => {
@@ -15,7 +15,10 @@ class Layout extends Component {
   }
 
   sideDrawerOpenedHandler = () => {
-    this.setState({showSideDrawer: true});
+    // this.setState({showSideDrawer: true});
+    this.setState((prevState) => {
+      return {showSideDrawer: !prevState.showSideDrawer};
+    });
   }
 
   render() {

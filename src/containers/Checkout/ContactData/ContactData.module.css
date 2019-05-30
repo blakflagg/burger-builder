@@ -8,9 +8,12 @@
     box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 .Input {
     display: block;
 }
+=======
+>>>>>>> 21e8bde719347c75d948c513d563b6f8ef4a6db2
 
 @media (min-width: 600px){
     .ContactData{
