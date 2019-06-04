@@ -22,15 +22,15 @@ class Layout extends Component {
   }
 
   render() {
+
     return (
-      <Aux>
+      <React.Fragment>
         <Toolbar open={this.sideDrawerOpenedHandler} />
         <SideDrawer open={this.state.showSideDrawer} closed={this.sideDrawerClosedHandler} />
-        <main className={classes.Content} >
-          {this.props.children}
+        <main className={classes.Content} >{this.props.children}
         </main>
-      </Aux >
-    );
+      </React.Fragment>
+    )
   }
 };
 export default Layout;
