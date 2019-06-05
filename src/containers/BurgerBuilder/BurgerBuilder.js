@@ -9,6 +9,7 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import { connect } from 'react-redux';
 import * as burgerBuilderActions from '../../store/actions/index';
 import axios from '../../axios-orders';
+import burger from '../../components/Burger/Burger';
 
 const INGREDIENT_PRICES = {
   salad: 0.5,
@@ -48,6 +49,7 @@ class BurgerBuilder extends Component {
   }
 
   purchaseContinueHandler = () => {
+    this.props.onInitPurchase();
     this.props.history.push('/checkout');
   }
 
@@ -105,7 +107,8 @@ const mapDispatchToProps = dispatch => {
   return {
     onAddIngredient: (ingsType) => dispatch(burgerBuilderActions.addIngredient(ingsType)),
     onRemoveIngredient: (ingsType) => dispatch(burgerBuilderActions.removeIngredient(ingsType)),
-    onInitIngredients: () => dispatch(burgerBuilderActions.initIngredients())
+    onInitIngredients: () => dispatch(burgerBuilderActions.initIngredients()),
+    onInitPurchase: () => dispatch(burgerBuilderActions.purchaseInit())
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(BurgerBuilder, axios));
