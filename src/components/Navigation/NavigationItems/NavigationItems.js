@@ -7,6 +7,7 @@ const navigationItems = () => (
     <ul className={classes.NavigationItems}>
         <NavigationItem exact link="/" >Burger Builder </NavigationItem>
         <NavigationItem exact link="/orders">Orders</NavigationItem>
+        <NavigationItem exact link="/auth">Login</NavigationItem>
     </ul>
 );
 
