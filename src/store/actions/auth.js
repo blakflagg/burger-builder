@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes';
+import { config } from '../../config/config';
 import axios from 'axios';
 
 
@@ -42,10 +43,10 @@ export const auth = (email, password, isSignup) => {
     password: password,
     returnSecureToken: true
   }
-  let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyCt3qfAD17iBWYwBO3H3HhCkiijdjrWeQ8';
+  let url = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${config.firebaseApiKey}`;
 
   if (!isSignup) {
-    url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyCt3qfAD17iBWYwBO3H3HhCkiijdjrWeQ8';
+    url = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${config.firebaseApiKey}`;
   }
 
   return dispatch => {
@@ -58,5 +59,12 @@ export const auth = (email, password, isSignup) => {
       .catch((error) => {
         dispatch(authFail(error.response.data.error));
       })
+  };
+};
+
+export const setAuthRedirectPath = (path) => {
+  return {
+    type: actionTypes.SET_AUTH_REDIRECT_PATH,
+    path: path
   };
 };
