@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from './Input.module.css';
-import { forOfStatement } from '@babel/types';
 
 const input = (props) => {
     let inputElement = null;
