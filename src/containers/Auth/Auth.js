@@ -44,9 +44,16 @@ class Auth extends Component {
     }
 
     componentDidMount() {
+<<<<<<< HEAD
         if(!this.props.buildingBurger && this.props.authRedirectPath !== '/'){
             this.onSetAuthRedirectPath(); //reset the path to 
+=======
+        if (!this.props.buildingBurger && this.props.authRedirectPath !== '/') {
+            this.props.onSetAuthRedirectPath(); //reset the path to 
+            console.log('1 ' + this.props.authRedirectPath);
+>>>>>>> 67d6198a06aa5bf93aa50672efd0026062f9d8d8
         }
+        console.log('2 ' + this.props.authRedirectPath);
     }
     checkValidity = (value, rules) => {
         let isValid = true;
